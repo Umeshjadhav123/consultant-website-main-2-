@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -11,26 +9,14 @@ import Footer from "./components/Footer";
 import NotFound from "./pages/404";
 import Consultant from "./pages/Consultant";
 import Login from "./pages/Login";
-
-import { Toaster } from "react-hot-toast";
 import SignUp from "./pages/Signup";
+import { Toaster } from "react-hot-toast";
 import { useAuthContext } from "./context/AuthContext.jsx";
 import { useAuth0 } from "@auth0/auth0-react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const { authUser } = useAuthContext();
   const { isAuthenticated } = useAuth0();
-  console.log(`isAuthenticated: `, isAuthenticated);
-
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     localStorage.setItem("isAuthUser", JSON.stringify(true));
-  //   } else {
-  //     localStorage.setItem("isAuthUser", JSON.stringify(false));
-  //   }
-  // }, [isAuthenticated]);
 
   return (
     <>
